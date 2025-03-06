@@ -1,4 +1,4 @@
-import { DockviewEvent, DockviewGroupPanel, GroupPanelContentPartInitParameters, IContentRenderer, IGroupPanelInitParameters, PanelUpdateEvent, Parameters } from "dockview-core";
+import { DockviewEvent, DockviewGroupPanel, IContentRenderer, IGroupPanelInitParameters, PanelUpdateEvent, Parameters } from "dockview-core";
 import { Observable, Subject } from 'rxjs';
 
 export class DockviewTabContent implements IContentRenderer {
@@ -8,7 +8,7 @@ export class DockviewTabContent implements IContentRenderer {
     get element(): HTMLElement {
         return this._element;
     }
-    
+
     onPanelVisibleChange(isPanelVisible: boolean): void {
         console.log('visibility changed',isPanelVisible)
         this.onVisibilityChanged.next(isPanelVisible)
@@ -26,7 +26,7 @@ export class DockviewTabContent implements IContentRenderer {
         this.onDestroy.next()
     }
     focus?(): void {
-        
+
     }
     init(params: IGroupPanelInitParameters): void {
         this._element.textContent = params.params['title'];
@@ -40,7 +40,6 @@ export class DockviewTabContent implements IContentRenderer {
 
     update(event: PanelUpdateEvent<Parameters>): void {
         //this._element.textContent = event.params['title'];
-        
+
     }
 }
- 

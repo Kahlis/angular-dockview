@@ -1,5 +1,6 @@
 import {
     DockviewComponent,
+    DockviewComponentOptions,
     IContentRenderer,
     IGroupPanelInitParameters,
     PanelUpdateEvent,
@@ -36,12 +37,11 @@ export function attach(parent: HTMLElement): {
     element.style.height = '100%';
     element.style.width = '100%';
 
-    const dockview = new DockviewComponent({
-        components: {
-            default: DefaultPanel,
-        },
-        parentElement: element,
-    });
+    const options: DockviewComponentOptions = {
+      createComponent: (params) => new DefaultPanel(),
+    };
+
+    const dockview = new DockviewComponent(element, options);
 
     parent.appendChild(element);
 

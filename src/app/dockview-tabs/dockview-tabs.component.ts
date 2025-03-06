@@ -1,5 +1,5 @@
 import { AfterViewChecked, AfterViewInit, Component, ComponentFactoryResolver, ElementRef, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
-import { DockviewComponent } from 'dockview-core';
+import { DockviewComponent, DockviewComponentOptions } from 'dockview-core';
 import { DefaultPanel } from '../dockiewService';
 import { DockviewTabContent } from '../dockview-tab-content/dockview-tab-content.renderer';
 import { DockViewTabsService } from './dockview-tabs.service';
@@ -29,15 +29,11 @@ export class DockviewTabsComponent implements AfterViewInit, OnInit, AfterViewCh
   }
   ngAfterViewInit() {
     if (this.divDockViewRoot) {
-      const dockview = new DockviewComponent({
-        components: {
-          default: DockviewTabContent,
-          tab1: DockviewTabContent,
-          tab2: DockviewTabContent
-        },
 
-        parentElement: this.divDockViewRoot.nativeElement,
-      });
+      const options: DockviewComponentOptions = {
+        createComponent: (_) => new DefaultPanel(),
+      };
+      const dockview = new DockviewComponent(this.divDockViewRoot.nativeElement, options);
       const { clientWidth, clientHeight } = this.divDockViewRoot.nativeElement;
       dockview.layout(clientWidth, clientHeight);
 
