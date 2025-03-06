@@ -3,9 +3,10 @@ import { DynamicChildComponentBase, DynamicCompItem } from './dynamic-comp.model
 import { AdDirective } from '../add-directive/ad-directive.directive';
 
 @Component({
-  selector: 'app-dynamic-comp-parent',
-  templateUrl: './dynamic-comp-parent.component.html',
-  styleUrls: ['./dynamic-comp-parent.component.css']
+    selector: 'app-dynamic-comp-parent',
+    templateUrl: './dynamic-comp-parent.component.html',
+    styleUrls: ['./dynamic-comp-parent.component.css'],
+    standalone: false
 })
 export class DynamicCompParentComponent implements AfterViewInit, OnInit, OnDestroy {
 

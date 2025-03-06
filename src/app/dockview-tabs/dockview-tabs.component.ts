@@ -7,9 +7,10 @@ import { DockViewTabContentHostDirective } from '../dockview-tab-content-host-di
 import { DockviewTabContentComponent } from '../dockview-tab-content/dockview-tab-content.component';
 
 @Component({
-  selector: 'app-dockview-tabs',
-  templateUrl: './dockview-tabs.component.html',
-  styleUrls: ['./dockview-tabs.component.css']
+    selector: 'app-dockview-tabs',
+    templateUrl: './dockview-tabs.component.html',
+    styleUrls: ['./dockview-tabs.component.css'],
+    standalone: false
 })
 export class DockviewTabsComponent implements AfterViewInit, OnInit, AfterViewChecked {
   @ViewChild('dockviewroot', { static: false }) divDockViewRoot?: ElementRef<HTMLDivElement>;
@@ -31,8 +32,9 @@ export class DockviewTabsComponent implements AfterViewInit, OnInit, AfterViewCh
     if (this.divDockViewRoot) {
 
       const options: DockviewComponentOptions = {
-        createComponent: (_) => new DefaultPanel(),
+        createComponent: (_: any) => new DefaultPanel(),
       };
+
       const dockview = new DockviewComponent(this.divDockViewRoot.nativeElement, options);
       const { clientWidth, clientHeight } = this.divDockViewRoot.nativeElement;
       dockview.layout(clientWidth, clientHeight);

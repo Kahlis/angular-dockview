@@ -2,9 +2,10 @@ import { AfterViewInit, Component, ComponentRef, ElementRef, OnDestroy, ViewChil
 import { IContentRenderer, IGroupPanelInitParameters, PanelUpdateEvent, Parameters } from 'dockview-core';
 
 @Component({
-  selector: 'app-dockview-tab-content',
-  templateUrl: './dockview-tab-content.component.html',
-  styleUrls: ['./dockview-tab-content.component.css']
+    selector: 'app-dockview-tab-content',
+    templateUrl: './dockview-tab-content.component.html',
+    styleUrls: ['./dockview-tab-content.component.css'],
+    standalone: false
 })
 export class DockviewTabContentComponent implements IContentRenderer, AfterViewInit,OnDestroy {
   private _element: HTMLElement;

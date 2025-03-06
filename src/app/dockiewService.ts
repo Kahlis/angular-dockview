@@ -38,7 +38,7 @@ export function attach(parent: HTMLElement): {
     element.style.width = '100%';
 
     const options: DockviewComponentOptions = {
-      createComponent: (params) => new DefaultPanel(),
+      createComponent: (_) => new DefaultPanel(),
     };
 
     const dockview = new DockviewComponent(element, options);

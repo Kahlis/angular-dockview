@@ -3,10 +3,10 @@ import { DynamicCompItem } from './dynamic-comp-parent/dynamic-comp.model';
 import { DynamicCompService } from './dynamic-comp-parent/dynamic-comp.service';
 
 @Component({
-  selector: 'app-root',
-
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.css'],
+    standalone: false
 })
 export class AppComponent implements OnInit {
   title = 'angular-dockview';
