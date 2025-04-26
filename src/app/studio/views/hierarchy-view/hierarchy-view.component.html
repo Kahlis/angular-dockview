@@ -1,0 +1,42 @@
+<main style="padding: 0.5rem">
+  <hlm-tabs tab="entities" class="w-full">
+    <hlm-tabs-list class="w-full grid grid-cols-2" aria-label="tabs example">
+      <button hlmTabsTrigger="entities">Entities</button>
+      <button hlmTabsTrigger="systems">Systems</button>
+    </hlm-tabs-list>
+    <div hlmTabsContent="entities">
+      <hlm-table>
+        <ng-template ngFor let-item [ngForOf]="items" let-i="index">
+          <hlm-trow>
+            <hlm-th class="w-3/4">Cube</hlm-th>
+            <button brnToggle class="right-3 fixed my-3">
+              <ng-icon size="lg" name="lucideEye" color="white" />
+            </button>
+          </hlm-trow>
+        </ng-template>
+      </hlm-table>
+    </div>
+    <div hlmTabsContent="systems">
+      <section hlmCard>
+        <div hlmCardHeader>
+          <h3 hlmCardTitle>Password</h3>
+          <p hlmCardDescription>Change your password here. After saving, you'll be logged out.</p>
+        </div>
+        <p hlmCardContent>
+          <label class="block my-4" hlmLabel>
+            Old Password
+            <input class="mt-1.5 w-full" type="password" hlmInput />
+          </label>
+          <label class="block my-4" hlmLabel>
+            New Password
+            <input class="mt-1.5 w-full" type="password" hlmInput />
+          </label>
+        </p>
+        <div hlmCardFooter>
+          <button hlmBtn>Save Password</button>
+        </div>
+      </section>
+    </div>
+  </hlm-tabs>
+
+</main>
